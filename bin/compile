@@ -5,8 +5,6 @@
 
 set -e
 
-
-
 build=$1
 cache=$2
 
@@ -30,13 +28,19 @@ git clone https://github.com/openvenues/libpostal --depth 1
 cd libpostal/
 ./bootstrap.sh
 LDFLAGS="-L$build/lib" CFLAGS="-I$build/include" PKG_CONFIG_PATH="$build/lib/pkgconfig" ./configure --prefix=/app/libpostal --datadir=$build
-cp ~/vendor/include/snappy* .
+cp ~/snappy/include/snappy* .
 
 make
 make install
 make install
 
+mv $build/libpostal $build/libpostal1
 mv /app/snappy /app/libpostal $build
+
+# create links
+ln -vs /app/build/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
+ln -vs /app/build/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
+
 # curl --fail --retry 3 --retry-delay 1 --connect-timeout 3 https://s3.amazonaws.com/toolsbucket/vendor.tar.bz2 -s -o - | tar jvxf - -C vendor/
 
 #profile.d script -> downloads the data.
