@@ -37,10 +37,6 @@ make install
 mv $build/libpostal $build/libpostal1
 mv /app/snappy /app/libpostal $build
 
-# create links
+echo "-----> Creating links"
 ln -vs /app/build/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
 ln -vs /app/build/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
-
-# curl --fail --retry 3 --retry-delay 1 --connect-timeout 3 https://s3.amazonaws.com/toolsbucket/vendor.tar.bz2 -s -o - | tar jvxf - -C vendor/
-
-#profile.d script -> downloads the data.
