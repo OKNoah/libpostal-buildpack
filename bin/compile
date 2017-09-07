@@ -35,7 +35,7 @@ make install
 make install
 
 # remove unused directories
-# rm -rf $cache
+rm -rf $cache
 # rm -rf $build/libpostal
 
 mv /app/snappy $build
