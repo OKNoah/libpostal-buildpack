@@ -34,7 +34,10 @@ make
 make install
 make install
 
-mv $build/libpostal $build/libpostal1
+# remove unused directories
+rm -rf $cache
+rm -rf $build/libpostal
+
 mv /app/snappy /app/libpostal $build
 
 #echo "-----> Creating links"
