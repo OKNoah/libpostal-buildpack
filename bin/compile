@@ -38,7 +38,8 @@ make install
 # rm -rf $cache
 # rm -rf $build/libpostal
 
-mv /app/snappy /app/libpostal $build
+mv /app/snappy $build
+mv /app/libpostal/* $build/libpostal
 
 echo "-----> Building links"
 ln -vs /app/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
