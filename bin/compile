@@ -41,6 +41,6 @@ make install
 mv /app/snappy $build
 mv /app/libpostal/* $build/libpostal
 
-echo "-----> Building links"
-ln -vs /app/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
-ln -vs /app/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
+# echo "-----> Building links"
+# ln -vs /app/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
+# ln -vs /app/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
