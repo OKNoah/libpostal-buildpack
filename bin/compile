@@ -40,6 +40,6 @@ rm -rf $build/libpostal
 
 mv /app/snappy /app/libpostal $build
 
-#echo "-----> Creating links"
-#ln -vs /app/build/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
-#ln -vs /app/build/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
+echo "-----> Building links"
+ln -vs /app/libpostal/include/libpostal/* /app/vendor/ruby-2.1.5/include/
+ln -vs /app/libpostal/lib/* /app/vendor/ruby-2.1.5/lib/
